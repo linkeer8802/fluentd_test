@@ -4,7 +4,7 @@ CODE_TAG=${BUILD_ID}
 #REGISTRY_HOST从环境变量中读取
 REGISTRY_HOST=${ENV_REGISTRY_HOST}
 JOB_ARTIFACT_URL=${BUILD_URL}"artifact"
-JENKINS_AUTH="pjsy:a97f212279f6b6966c88401cbe944e5d"
+JENKINS_AUTH="pjsy:e35173d57bc1a1acb2ed45f9f5b1e667"
 
 echo "building image from jenkins..."
 docker build --no-cache --build-arg JOB_ARTIFACT_URL=${JOB_ARTIFACT_URL} \
