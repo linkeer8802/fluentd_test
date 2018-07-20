@@ -15,19 +15,14 @@ import io.vertx.core.Vertx;
 /**
  * @author weird
  */
-public class FluentTest extends AbstractVerticle {
+public class FluentTest {
 
   static final Logger logger = LoggerFactory.getLogger(FluentTest.class);
   
-  @Override
-  public void start(Future<Void> startFuture) throws Exception {
-    main();
-    super.start(startFuture);
-  }
   /**
    * @param args
    */
-  public void main() {
+  public static void main(String[] args) {
     
     String format = "Hello %s";
     String message = String.format(format, "fluentd");
@@ -51,8 +46,10 @@ public class FluentTest extends AbstractVerticle {
     throw new RuntimeException("error test!");
   }
   
-  public int exceptionMethod() {
+  public static int exceptionMethod() {
     logger.warn("it will has some exception~");
     return 0 / 0;
   }
+  
+  
 }

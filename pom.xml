@@ -23,9 +23,17 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<descriptors>
+<!-- 					<descriptors>
 						<descriptor>src/main/assembly/assembly.xml</descriptor>
-					</descriptors>
+					</descriptors> -->
+			          <descriptorRefs>
+			            <descriptorRef>jar-with-dependencies</descriptorRef>
+			          </descriptorRefs>					
+			          <archive>
+			            <manifest>
+			              <mainClass>org.fluent.FluentTest</mainClass>
+			            </manifest>
+			          </archive>					
 				</configuration>
 		        <executions>
 		          <execution>

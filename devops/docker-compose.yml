@@ -3,6 +3,7 @@ version: '3.4'
 services:
   vertx:
     image: ${REGISTRY_HOST}/vertx_service:${CODE_TAG}
+    working_dir: /deploy
     networks:
       - default
     volumes:
@@ -10,10 +11,11 @@ services:
       - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
     ports:
       - target: 8080
-        published: 8080
+        published: 9080
         mode: host
-#    logging:
-#      driver: "fluentd"
+    command: java -jar vertx-service.jar
+    logging:
+      driver: "fluentd"
     deploy:
       restart_policy:
         delay: 1m
