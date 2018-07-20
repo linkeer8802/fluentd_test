@@ -13,7 +13,7 @@ node {
   }
 
   stage('ArchiveArtifacts') {
-      archiveArtifacts '**/*.jar'
+      archiveArtifacts '**/*.tar.gz'
   }
 
   stage('BuildAndPushImages') {

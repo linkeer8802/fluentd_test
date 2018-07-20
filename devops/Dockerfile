@@ -16,7 +16,7 @@ RUN set -x \
 RUN set -x \
 	&& mkdir -p ${VERTICLE_HOME} \
 	&& cd ${VERTICLE_HOME} \
-	&& curl -o package.tar.gz -u $JENKINS_AUTH --progress $JOB_ARTIFACT_URL/fluentd-project/target/fluentd_test-vertx_service.tar.gz \
+	&& curl -o package.tar.gz -u ${JENKINS_AUTH} --progress ${JOB_ARTIFACT_URL}/target/fluentd_test-vertx_service.tar.gz \
 	&& tar -xvf package.tar.gz && rm -rf package.tar.gz
 	
 EXPOSE 8080
