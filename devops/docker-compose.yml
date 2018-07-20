@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  vertx:
+    image: ${REGISTRY_HOST}/vertx_service:${CODE_TAG}
+    networks:
+      - default
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+    ports:
+      - target: 8080
+        published: 8080
+        mode: host
+#    logging:
+#      driver: "fluentd"
+    deploy:
+      restart_policy:
+        delay: 1m
+        max_attempts: 5
+      placement:
+        constraints:
+          - node.labels.name == platform-app
+networks:
+  default:
