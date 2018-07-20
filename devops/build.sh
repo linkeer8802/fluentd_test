@@ -7,7 +7,7 @@ JOB_ARTIFACT_URL=${BUILD_URL}"artifact"
 JENKINS_AUTH="pjsy:e35173d57bc1a1acb2ed45f9f5b1e667"
 
 echo "building image from jenkins..."
-docker build --no-cache --build-arg JOB_ARTIFACT_URL=${JOB_ARTIFACT_URL} \
+docker build --no-cache --build-arg --add-host jenkinsci.pjsy.com:192.168.40.210 JOB_ARTIFACT_URL=${JOB_ARTIFACT_URL} \
  --build-arg JENKINS_AUTH=${JENKINS_AUTH} \
  -t ${REGISTRY_HOST}/vertx-service:${CODE_TAG} .
 
