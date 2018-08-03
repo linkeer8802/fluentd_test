@@ -8,8 +8,6 @@ package org.fluent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 
 /**
@@ -29,6 +27,7 @@ public class FluentTest {
     
     Vertx vertx = Vertx.vertx();
     vertx.createHttpServer().requestHandler(request -> {
+      logger.info("Request " + request.absoluteURI() +  " At " + System.currentTimeMillis());
       request.response().end(message);
     }).listen(8080);
     
