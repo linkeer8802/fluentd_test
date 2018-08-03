@@ -20,6 +20,7 @@ public class FluentTest {
   /**
    * @param args
    */
+  static int a = 0;
   public static void main(String[] args) {
     
     String format = "Hello %s";
@@ -28,6 +29,13 @@ public class FluentTest {
     Vertx vertx = Vertx.vertx();
     vertx.createHttpServer().requestHandler(request -> {
       logger.info("Request " + request.absoluteURI() +  " At " + System.currentTimeMillis());
+      try {
+        if (a++ % 2 == 0) {
+          throw new IllegalStateException();
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
       request.response().end(message);
     }).listen(8080);
     
